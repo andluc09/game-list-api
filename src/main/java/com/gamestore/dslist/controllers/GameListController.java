@@ -4,13 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gamestore.dslist.dto.GameDTO;
-import com.gamestore.dslist.dto.GameMinDTO;
-import com.gamestore.dslist.services.GameService;
+import com.gamestore.dslist.dto.GameListDTO;
+import com.gamestore.dslist.services.GameListService;
 
 // Primeira Camada - Controladores REST
 	// Comunicação direta para com o app ou aplicação, em outras palavras: o Front-end
@@ -19,22 +17,15 @@ import com.gamestore.dslist.services.GameService;
 	// Disponibiliza a API, expõe o endpoint para o mundo externo
 
 @RestController
-@RequestMapping(value = "/games")
-public class GameController {
+@RequestMapping(value = "/lists")
+public class GameListController {
 
 	@Autowired
-	private GameService gameService; // Injeção de dependência do Service
-	
-	
-	@GetMapping(value = "/{id}")
-	public GameDTO findById(@PathVariable Long id) { // Endpoint
-		GameDTO result = gameService.findById(id);
-		return result;
-	}
-	
+	private GameListService gameListService; // Injeção de dependência do Service
+		
 	@GetMapping
-	public List<GameMinDTO> findAll() {
-		List<GameMinDTO> result = gameService.findAll();
+	public List<GameListDTO> findAll() {
+		List<GameListDTO> result = gameListService.findAll();
 		return result;
 	}
 	
