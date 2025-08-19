@@ -1,2 +1,3 @@
-# dslist
-Projeto - Java + Spring DSList
+# game-list-api
+
+Projeto - API REST para gerenciamento e listagem de jogos.
